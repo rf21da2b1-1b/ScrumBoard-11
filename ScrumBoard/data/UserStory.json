@@ -1,0 +1,34 @@
+[
+  {
+    "Id": 1,
+    "Title": "Create Story",
+    "Description": "As P.O I want to create a new Story So ...",
+    "StoryPoints": 34,
+    "BusinessValue": 7,
+    "State": 0
+  },
+  {
+    "Id": 2,
+    "Title": "Edit Story",
+    "Description": "As P.O I want to edit a Story So ...",
+    "StoryPoints": 1,
+    "BusinessValue": 3,
+    "State": 2
+  },
+  {
+    "Id": 3,
+    "Title": "Move Story",
+    "Description": "As team member I want to move a Story So ...",
+    "StoryPoints": 3,
+    "BusinessValue": 4,
+    "State": 0
+  },
+  {
+    "Id": 4,
+    "Title": "Delete Story",
+    "Description": "As team member to delete",
+    "StoryPoints": 8,
+    "BusinessValue": 0,
+    "State": 0
+  }
+]

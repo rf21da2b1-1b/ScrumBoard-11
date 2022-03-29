@@ -1,0 +1,56 @@
+﻿@page
+@model ScrumBoard.Pages.UserStories.CreateUserStoryModel
+@{
+    ViewData["Title"] = "Create a new UserStory";
+}
+
+
+<h1>Opret en ny UserStory</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" asp-for="@Model.UserStory.Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Description</label>
+                <textarea col="120" asp-for="@Model.UserStory.Description" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Business Value</label><br />
+                @foreach (var bv in Model.BusinessRadioValues)
+                {
+                    <input name="AreChecked" type="checkbox" value="@bv" style="margin-left: 15px;"/> @bv
+                }
+                <br />
+            </div>
+            <div class="form-group">
+                <label>Story Points</label><br />
+                @foreach (var sp in Model.StoryPointsValues)
+                {
+                    <input type="radio" asp-for="StoryPoints" value="@sp" style="margin-left: 15px;"/> @sp
+                }
+                <br />
+            </div>
+
+            <div class="form-group">
+                <label>Story Points - som dropdown</label><br />
+                <select id="StoryPointsDropDown" name="StoryPointsDropDown" asp-for="StoryPointsDropDown" class="form-control">
+                    @foreach (var sp in Model.StoryPointsValues)
+                    {
+                        <option value="@sp" >@sp</option>
+                    }
+                </select>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Opret UserStory" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<a href="./" class="btn-link"> Tilbage Til Listen af UserStories </a>

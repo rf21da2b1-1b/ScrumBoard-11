@@ -1,0 +1,65 @@
+﻿@page "{id:int}"
+@model ScrumBoard.Pages.UserStories.UpdateUserStoryModel
+@{
+    ViewData["Title"] = "Opdater UserStory";
+}
+
+<h1>Opdatere en UserStory</h1>
+
+
+@if (!string.IsNullOrWhiteSpace(@Model.ErrorMessage))
+{
+    <h2 class="alert-danger">@Model.ErrorMessage</h2>
+}
+else
+{
+    <h2>Du kan nu opdatere (@Model.UserStory.Id)  @Model.UserStory.Title</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" asp-for="@Model.UserStory.Title" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea col="120" asp-for="@Model.UserStory.Description" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Business Value</label><br />
+                    @foreach (var sp in Model.BusinessValues)
+                    {
+                        <input type="radio" asp-for="@Model.UserStory.BusinessValue" value="@sp" style="margin-left: 15px;"/> @sp
+                    }
+                    <br />
+                </div>
+                <div class="form-group">
+                    <label>Story Points</label><br />
+                    @foreach (var sp in Model.StoryPointsValues)
+                    {
+                        <input type="radio" asp-for="@Model.UserStory.StoryPoints" value="@sp" style="margin-left: 15px;"/> @sp
+                    }
+                    <br />
+                </div>
+
+                <div class="form-group">
+                    <label>State</label><br />
+                    <select id="State" name="State" asp-for="State" class="form-control">
+                        @foreach (var sp in Model.StateValues)
+                        {
+                            <option value="@sp" >@sp</option>
+                        }
+                    </select>
+                    <br />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Opdater UserStory" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+}
+
+<a href="./" class="btn-link"> Tilbage Til Listen af UserStories </a>

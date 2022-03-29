@@ -1,0 +1,65 @@
+﻿@page
+@model ScrumBoard.Pages.UserStories.IndexModel
+@{
+}
+<h1>Dette er UserStories</h1>
+<p>Her Kommer listen</p>
+
+<div class="row">
+    <div class="col-md-8">
+        @foreach (var us in @Model.UserStories)
+        {
+            <div class="card mb-2" style="width: 30rem;">
+                <div class="card-header p-2">
+                    <h5 class="card-title">(@us.Id) @us.Title</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">@Model.ShowDescription(us.Description)</p>
+                </div>
+
+                <div class="card-footer">
+                    <a class="btn" type="button" asp-page="DeleteUserStory" asp-route-id="@us.Id">
+                        <i class="fa fa-trash"></i>
+                    </a>
+
+                    <a class="btn" type="button" asp-page="UserStoryDetailed" asp-route-id="@us.Id">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    
+                    <a class="btn" type="button" asp-page="UpdateUserStory" asp-route-id="@us.Id">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                </div>
+            </div>
+        }
+        </div>
+
+
+    <div class="col-md-2" align="right">
+        <div class="row">
+            <form method="post">
+                <a class="btn btn-primary" type="button" asp-page="CreateUserStory" >Opret en ny UserStory</a>
+            </form>
+        </div>
+        <div class="row" style="margin-top: 30px">
+            <form method="post">
+                <div class="form-group">
+
+                    <label>Sort User Stories</label><br />
+                    <select id="SortType" name="SortType" asp-for="SortType" class="form-control">
+                        @foreach (var sp in Model.SortTypeValues)
+                        {
+                            <option value="@sp">@sp</option>
+                        }
+                    </select>
+                    <br />
+                    <input type="Submit" value="Søg" class="btn btn-primary" />
+                    @*<a class="btn btn-primary" type="button">Søg</a>*@
+
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>

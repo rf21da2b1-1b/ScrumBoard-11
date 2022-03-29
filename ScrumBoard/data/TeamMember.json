@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Name": "Peter",
+    "Email": "pele@zealand.dk",
+    "Role": "ScrumMaster"
+  },
+  {
+    "Id": 2,
+    "Name": "Jakob",
+    "Email": "jnch@zealand.dk",
+    "Role": "Member"
+  },
+  {
+    "Id": 3,
+    "Name": "Anders",
+    "Email": "Anbo@zealand.dk",
+    "Role": "Member"
+  },
+  {
+    "Id": 4,
+    "Name": "Vibeke",
+    "Email": "visa@zealand.dk",
+    "Role": "Member"
+  }
+]

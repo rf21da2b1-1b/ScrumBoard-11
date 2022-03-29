@@ -1,0 +1,47 @@
+﻿@page
+@model ScrumBoard.Pages.Teams.IndexModel
+@{
+    ViewData["Title"] = "Team Members";
+}
+
+<h1>Dette er Team Members</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        @foreach (var m in @Model.TeamMembers)
+        {
+            <div class="card mb-2" style="width: 30rem;">
+                <div class="card-header p-2">
+                    <h5 class="card-title">(@m.Id) @m.Name</h5>
+                </div>
+
+                <div class="card-body">
+                    <p class="card-text">@m.Email with the role @m.Role</p>
+                </div>
+
+                <div class="card-footer">
+                    <a class="btn" type="button" asp-page="RemoveMember" asp-route-id="@m.Id">
+                        <i class="fa fa-trash"></i>
+                    </a>
+
+                    <a class="btn" type="button" asp-page="EditMember" asp-route-id="@m.Id">
+                        <i class="fa fa-edit"></i>
+                    </a>
+
+                </div>
+            </div>
+        }
+        </div>
+
+
+    <div class="col-md-2" align="right">
+        <div class="row">
+            <form method="post">
+                <a class="btn btn-primary" type="button" asp-page="AddMember">
+                    Tilføj Member til teamet
+                    <i class="fa fa-plus-circle"></i>
+                </a>
+            </form>
+        </div>
+    </div>
+    </div>

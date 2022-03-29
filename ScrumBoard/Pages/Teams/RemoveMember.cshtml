@@ -1,0 +1,28 @@
+﻿@page "{id:int}"
+@model ScrumBoard.Pages.Teams.RemoveMemberModel
+@{
+    ViewData["Title"] = "Remove a new Member";
+}
+
+<h1>Fjern et medlem fra gruppen</h1>
+
+
+@if (!string.IsNullOrWhiteSpace(@Model.ErrorMessage))
+{
+    <h2 class="alert-danger">@Model.ErrorMessage</h2>
+}
+else
+{
+    <h2>Du er ved at fjerne @Model.TeamMember.Name (@Model.TeamMember.Email) fra gruppen</h2>
+    <br />
+    <h3>Er sikker?</h3>
+    <form method="post">
+        <div class="form-group">
+            <input type="submit" value="Ja fjern Medlem" class="btn btn-danger" asp-route-answer="YES" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Nej Gå tilbage" class="btn btn-primary" asp-route-answer="NO" />
+        </div>
+    </form>
+}
+

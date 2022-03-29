@@ -1,0 +1,35 @@
+﻿@page "{id:int}"
+@model ScrumBoard.Pages.Teams.EditMemberModel
+@{
+    ViewData["Title"] = "Opdatere et medlem";
+}
+
+<h1>Opdatere et Gruppemedlem</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div class="form-group">
+                <label>Navn</label>
+                <input type="text" asp-for="@Model.TeamMember.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" asp-for="@Model.TeamMember.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Role</label>
+                <select id="TeamMember.Role" name="TeamMember.Role" asp-for="TeamMember.Role" class="form-control">
+                    <option value="Member">Member</option>
+                    <option value="ScrumMaster">ScrumMaster</option>
+                </select>
+                <br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Opdater Medlem" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<a href="./" class="btn-link"> Tilbage Til Medlems listen</a>
